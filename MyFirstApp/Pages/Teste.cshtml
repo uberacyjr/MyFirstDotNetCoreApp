@@ -13,5 +13,11 @@
 <body>
     <h1>Razor Pages</h1>
     <div>@Model.Description</div>
+   @{
+       foreach (var item in Model.Persons)
+       {
+           <div>@item.Name</div>
+       }
+   }
 </body>
 </html>

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstApp.Domain", "MyFirs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstApp.Service", "MyFirstApp.Service\MyFirstApp.Service.csproj", "{B1E4F945-CECA-4BFA-B22E-74918E72B1DA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyFirstApp.Tests", "MyFirstApp.Tests", "{56E4348D-1EC2-4799-A262-ED097AA5891B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstApp.Service.Test", "MyFirstApp.Service.Test\MyFirstApp.Service.Test.csproj", "{9435980B-C506-433A-8759-BA30C75027A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{B1E4F945-CECA-4BFA-B22E-74918E72B1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1E4F945-CECA-4BFA-B22E-74918E72B1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1E4F945-CECA-4BFA-B22E-74918E72B1DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9435980B-C506-433A-8759-BA30C75027A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9435980B-C506-433A-8759-BA30C75027A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9435980B-C506-433A-8759-BA30C75027A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9435980B-C506-433A-8759-BA30C75027A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9435980B-C506-433A-8759-BA30C75027A9} = {56E4348D-1EC2-4799-A262-ED097AA5891B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {739832AE-8E1A-43F7-B437-4D91828F3942}
