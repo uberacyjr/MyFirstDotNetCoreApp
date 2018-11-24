@@ -9,12 +9,12 @@ namespace MyFirstApp.Web.Pages
 {
     public class TesteModel : PageModel
     {
-        public string Descricao { get; set; }
-        public string Titulo { get; set; }
+        public string Description { get; set; }
+        public string Title { get; set; }
         public void OnGet()
         {
-            Titulo = "Razor Pages";
-            Descricao = "This tutorial teaches the basics of building an ASP.NET Core Razor Pages web app.";
+            Title = "Razor Pages";
+            Description = "Razor Pages is the recommended way to build UI for web apps in ASP.NET Core.";
         }
     }
 }
