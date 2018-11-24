@@ -13,6 +13,8 @@ namespace MyFirstApp
 {
     public class Startup
     {
+        //How to read connection string inside .NET Standard Class library project from ASP.NET Core
+        //https://stackoverflow.com/questions/51304432/how-to-read-connection-string-inside-net-standard-class-library-project-from-as
         private readonly IConfiguration _config;
         public Startup(IConfiguration config)
         {
