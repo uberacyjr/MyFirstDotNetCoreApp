@@ -28,8 +28,8 @@ namespace MyFirstApp
             services.AddMvc();
             //Para fazer injeção de depêndencia de classe concreta
             services.AddTransient<PersonListService, PersonListService>();
-            //Enteder melhor esse comando. O padrão singleton serve para garantir que uma classe só vai ter uma
-            //instancia. Nesse caso acredito que a instancia é única durante o ciclo de vida da requisição.
+            //Enteder melhor esse comando. O padrão singleton serve para garantir que uma classe só vai ter uma instância.
+            //Nesse caso acredito que a instância é única durante o ciclo de vida da requisição.
             //Consegui com essa chamada acessar a configuração do projeto na class lirary MyFistApp.Service e usar a connection string contida no appsettings
             services.AddSingleton(_config);
             // Configuração de Injeção de Depêndencia Interface/Implementação
