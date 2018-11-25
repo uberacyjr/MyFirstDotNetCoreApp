@@ -13,7 +13,7 @@ namespace MyFirstApp
 {
     public class Startup
     {
-        //How to read connection string inside .NET Standard Class library project from ASP.NET Core
+        //How to read connection string inside .NET Standard Class librahttps://www.google.com.br/webhp?hl=pt-BR&ictx=2&sa=X&ved=0ahUKEwiUj6-qrO7eAhXDI5AKHUPRBKsQPQgHry project from ASP.NET Core
         //https://stackoverflow.com/questions/51304432/how-to-read-connection-string-inside-net-standard-class-library-project-from-as
         private readonly IConfiguration _config;
         public Startup(IConfiguration config)
@@ -26,12 +26,18 @@ namespace MyFirstApp
         {
             //Para usar o mvc precisa desse método AddMvc do services
             services.AddMvc();
+            //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-2.1
+            //Forma correta de passar connections string para class librarys
+            services.Configure<ConnectionStrings>(_config.GetSection("ConnectionStrings"));
             //Para fazer injeção de depêndencia de classe concreta
             services.AddTransient<PersonListService, PersonListService>();
             //Enteder melhor esse comando. O padrão singleton serve para garantir que uma classe só vai ter uma instância.
             //Nesse caso acredito que a instância é única durante o ciclo de vida da requisição.
             //Consegui com essa chamada acessar a configuração do projeto na class lirary MyFistApp.Service e usar a connection string contida no appsettings
-            services.AddSingleton(_config);
+            //https://stackoverflow.com/questions/46574521/is-services-addsingletoniconfiguration-really-needed-in-net-core-2-api
+            //https://weblog.west-wind.com/posts/2018/Feb/18/Accessing-Configuration-in-NET-Core-Test-Projects
+            //AddSingleton é feito pelo .net core
+            // services.AddSingleton(_config);
             // Configuração de Injeção de Depêndencia Interface/Implementação
             //services.AddTransient<interface, implementation>();
         }

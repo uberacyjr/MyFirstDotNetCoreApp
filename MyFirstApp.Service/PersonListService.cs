@@ -6,22 +6,24 @@ using Dapper;
 using System.Data.SqlClient;
 using MyFirstApp.Domain;
 using System.Linq;
+using Microsoft.Extensions.Options;
 
 namespace MyFirstApp.Service
 {
     public class PersonListService
     {
-        private IConfiguration _config;
+        private ConnectionStrings _config;
 
-        public PersonListService(IConfiguration config)
+        public PersonListService(IOptions<ConnectionStrings> config)
         {
-            _config = config;
+            _config = config.Value;
         }
 
         public List<Person> GetAllPersons()
         {
-            var connectionString = _config.GetConnectionString("DefaultConnection");
+            var connectionString = _config.DefaultConnection;
             var persons = new List<Person>();
+
             using (var sqlConn = new SqlConnection(connectionString))
             {
                 persons = sqlConn.Query<Person>("SELECT * FROM PERSON").ToList();
