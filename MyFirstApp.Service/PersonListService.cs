@@ -1,34 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Extensions.Configuration;
-using Dapper;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using MyFirstApp.Domain;
 using System.Linq;
-using Microsoft.Extensions.Options;
+using MyFirstApp.Infrastructure;
 
 namespace MyFirstApp.Service
 {
     public class PersonListService
     {
-        private ConnectionStrings _config;
-
-        public PersonListService(IOptions<ConnectionStrings> config)
+        private SqlQuery<Person> _query;
+        public PersonListService(SqlQuery<Person> query)
         {
-            _config = config.Value;
+            _query = query;
         }
 
         public List<Person> GetAllPersons()
         {
-            var connectionString = _config.DefaultConnection;
-            var persons = new List<Person>();
-
-            using (var sqlConn = new SqlConnection(connectionString))
-            {
-                persons = sqlConn.Query<Person>("SELECT * FROM PERSON").ToList();
-            }
-
+            List<Person> persons = _query.GetAll("SELECT * FROM PERSON").ToList();
             return persons;
         }
     }

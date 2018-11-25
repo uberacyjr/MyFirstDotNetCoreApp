@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyFirstApp.Domain;
+using MyFirstApp.Infrastructure;
 using MyFirstApp.Service;
 
 namespace MyFirstApp
@@ -28,9 +30,10 @@ namespace MyFirstApp
             services.AddMvc();
             //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-2.1
             //Forma correta de passar connections string para class librarys
-            services.Configure<ConnectionStrings>(_config.GetSection("ConnectionStrings"));
+            services.Configure<ConnectionHelper>(_config.GetSection("ConnectionStrings"));
             //Para fazer injeção de depêndencia de classe concreta
             services.AddTransient<PersonListService, PersonListService>();
+            services.AddTransient<SqlQuery<Person>, SqlQuery<Person>>();
             //Enteder melhor esse comando. O padrão singleton serve para garantir que uma classe só vai ter uma instância.
             //Nesse caso acredito que a instância é única durante o ciclo de vida da requisição.
             //Consegui com essa chamada acessar a configuração do projeto na class lirary MyFistApp.Service e usar a connection string contida no appsettings
